@@ -1,4 +1,5 @@
 TermModel:
+    types*=SimpleType
     terms+=Term
 ;
 
@@ -9,5 +10,13 @@ Term:
 ;
 
 Property:
-    name=ID ':' type=ID
+    name=ID ':' type=[Type]
+;
+
+Type:
+    SimpleType | Term
+;
+
+SimpleType:
+    'type' name=ID
 ;

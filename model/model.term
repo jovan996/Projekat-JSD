@@ -1,3 +1,8 @@
+type string
+type int
+type long
+type boolean
+
 term User {
     id : long
     firstName : string
