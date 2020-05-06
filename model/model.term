@@ -1,0 +1,25 @@
+term User {
+    id : long
+    firstName : string
+    lastName : string
+    username : string
+    password : string
+    active : boolean
+}
+
+term Firm {
+    id : long
+    name : string
+    email : string
+    workersNumber : int
+    description : string
+    address : Address
+}
+
+term Address {
+    id : long
+    street : string
+    number : int
+    city : string
+    country : string
+}

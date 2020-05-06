@@ -1,0 +1,56 @@
+
+    digraph textX {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+2966853391864 -> 2966853393936 [label="terms:0" arrowtail=diamond dir=both]
+2966853393936 -> 2966853435632 [label="properties:0" arrowtail=diamond dir=both]
+2966853435632[label="{id:Property|+type:str='long'\l}"]
+2966853393936 -> 2966853435744 [label="properties:1" arrowtail=diamond dir=both]
+2966853435744[label="{firstName:Property|+type:str='string'\l}"]
+2966853393936 -> 2966853435800 [label="properties:2" arrowtail=diamond dir=both]
+2966853435800[label="{lastName:Property|+type:str='string'\l}"]
+2966853393936 -> 2966853435856 [label="properties:3" arrowtail=diamond dir=both]
+2966853435856[label="{username:Property|+type:str='string'\l}"]
+2966853393936 -> 2966853435912 [label="properties:4" arrowtail=diamond dir=both]
+2966853435912[label="{password:Property|+type:str='string'\l}"]
+2966853393936 -> 2966853435968 [label="properties:5" arrowtail=diamond dir=both]
+2966853435968[label="{active:Property|+type:str='boolean'\l}"]
+2966853393936[label="{User:Term|}"]
+2966853391864 -> 2966853392368 [label="terms:1" arrowtail=diamond dir=both]
+2966853392368 -> 2966853392032 [label="properties:0" arrowtail=diamond dir=both]
+2966853392032[label="{id:Property|+type:str='long'\l}"]
+2966853392368 -> 2966853391416 [label="properties:1" arrowtail=diamond dir=both]
+2966853391416[label="{name:Property|+type:str='string'\l}"]
+2966853392368 -> 2966853390576 [label="properties:2" arrowtail=diamond dir=both]
+2966853390576[label="{email:Property|+type:str='string'\l}"]
+2966853392368 -> 2966853320888 [label="properties:3" arrowtail=diamond dir=both]
+2966853320888[label="{workersNumber:Property|+type:str='int'\l}"]
+2966853392368 -> 2966853244576 [label="properties:4" arrowtail=diamond dir=both]
+2966853244576[label="{description:Property|+type:str='string'\l}"]
+2966853392368 -> 2966853435576 [label="properties:5" arrowtail=diamond dir=both]
+2966853435576[label="{address:Property|+type:str='Address'\l}"]
+2966853392368[label="{Firm:Term|}"]
+2966853391864 -> 2966853392200 [label="terms:2" arrowtail=diamond dir=both]
+2966853392200 -> 2966853435688 [label="properties:0" arrowtail=diamond dir=both]
+2966853435688[label="{id:Property|+type:str='long'\l}"]
+2966853392200 -> 2966853436136 [label="properties:1" arrowtail=diamond dir=both]
+2966853436136[label="{street:Property|+type:str='string'\l}"]
+2966853392200 -> 2966853436080 [label="properties:2" arrowtail=diamond dir=both]
+2966853436080[label="{number:Property|+type:str='int'\l}"]
+2966853392200 -> 2966853436192 [label="properties:3" arrowtail=diamond dir=both]
+2966853436192[label="{city:Property|+type:str='string'\l}"]
+2966853392200 -> 2966853436248 [label="properties:4" arrowtail=diamond dir=both]
+2966853436248[label="{country:Property|+type:str='string'\l}"]
+2966853392200[label="{Address:Term|}"]
+2966853391864[label="{:TermModel|}"]
+
+}

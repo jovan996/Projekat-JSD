@@ -1,0 +1,51 @@
+
+    digraph textX {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+2071751019080[ label="{TermModel|}"]
+
+2071751021912[ label="{Term|+name:ID\l}"]
+
+2071750992648[ label="{Property|+name:ID\l+type:ID\l}"]
+
+2071751006808[ label="{ID|}"]
+
+2071751007752[ label="{STRING|}"]
+
+2071751009640[ label="{BOOL|}"]
+
+2071750979432[ label="{INT|}"]
+
+2071751012472[ label="{FLOAT|}"]
+
+2071751015304[ label="{STRICTFLOAT|}"]
+
+2071751005864[ label="{NUMBER|}"]
+
+2071751011528[ label="{BASETYPE|}"]
+
+2071751018136[ label="{*OBJECT|}"]
+
+
+
+2071751019080 -> 2071751021912[arrowtail=diamond, dir=both, headlabel="terms 1..*"]
+2071751021912 -> 2071750992648[arrowtail=diamond, dir=both, headlabel="properties 1..*"]
+2071751005864 -> 2071751015304 [dir=back]
+2071751005864 -> 2071750979432 [dir=back]
+2071751011528 -> 2071751005864 [dir=back]
+2071751011528 -> 2071751012472 [dir=back]
+2071751011528 -> 2071751009640 [dir=back]
+2071751011528 -> 2071751006808 [dir=back]
+2071751011528 -> 2071751007752 [dir=back]
+2071751018136 -> 2071751011528 [dir=back]
+
+}

@@ -1,0 +1,13 @@
+TermModel:
+    terms+=Term
+;
+
+Term:
+    'term' name=ID '{'
+        properties+=Property
+    '}'
+;
+
+Property:
+    name=ID ':' type=ID
+;
