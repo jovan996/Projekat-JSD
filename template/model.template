@@ -1,0 +1,36 @@
+//Generated from model.template file
+
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+@Table(name = "{{term.name}}")
+public class {{term.name}} {
+    {% for property in term.properties%}
+    {%if property.name == 'id'%}
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private {{property.type | javatype}} {{property.name}};
+
+    {%else%}
+    @Column
+    private {{property.type | javatype}} {{property.name}};
+
+    {% endif %}
+    {% endfor %}
+
+    {% for property in term.properties%}
+    public {{property.type | javatype}} get{{property.name | to_pascalcase}}() {
+        return {{property.name}};
+    }
+
+    public void set{{property.name | to_pascalcase}}({{property.type | javatype}} {{property.name}}) {
+        this.{{property.name}} = {{property.name}};
+    }
+
+    {% endfor %}
+}

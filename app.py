@@ -6,7 +6,7 @@ from textx.export import metamodel_export, model_export
 
 
 this_folder = dirname(__file__)
-
+#print(this_folder)
 
 class SimpleType(object):
     
@@ -17,26 +17,32 @@ class SimpleType(object):
     def __str__(self):
         return self.name
 
-
-def get_metamodel(debug=False):
+def get_metamodel():
     
-    type_builtins = {
-            'integer': SimpleType(None, 'integer'),
-            'string': SimpleType(None, 'string')
+    simple_types = {
+            'int': SimpleType(None, 'int'),
+            'String': SimpleType(None, 'String'),
+            'Long': SimpleType(None, 'Long'),
+            'boolean': SimpleType(None, 'boolean')
     }
-    entity_mm = metamodel_from_file(join(this_folder, 'term.tx'),
+    metamodel = metamodel_from_file('meta-model/term.tx',
                                     classes=[SimpleType],
-                                    builtins=type_builtins,
-                                    debug=debug)
+                                    builtins=simple_types)
 
-    return entity_mm
+    return metamodel
 
 
-def main(debug=False):
+def main():
 
-    term_mm = get_metamodel(debug)
+    mm = get_metamodel()
 
-    person_model = term_mm.model_from_file(join(this_folder, 'model.term'))
+    dot_folder = join(this_folder, 'dotexport')
+    if not os.path.exists(dot_folder):
+        os.mkdir(dot_folder)
+    metamodel_export(mm, join(dot_folder,'term.dot'))
+
+    model = mm.model_from_file('model/model.term')
+    model_export(model, join(dot_folder, 'model.dot'))
 
 
 if __name__ == "__main__":

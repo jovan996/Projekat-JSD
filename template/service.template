@@ -1,0 +1,39 @@
+//Generated from service.template file
+
+package rs.ac.ftn.uns.jsd.foo.service.implementation;
+
+import org.springframework.stereotype.Service;
+import rs.ac.ftn.uns.jsd.foo.model.{{term.name}};
+import rs.ac.ftn.uns.jsd.foo.repository.{{term.name}}Repository;
+import rs.ac.ftn.uns.jsd.foo.repository.{{term.name}}Service;
+
+@Service
+public class {{term.name}}Service {
+
+    @Autowired
+    private {{term.name}}Repository {{term.name | to_lowercase}}Repository;
+
+    public List<{{term.name}}> getAll() {
+        return {{term.name | to_lowercase}}Repository.findAll();
+    }
+
+    public {{term.name}} getById(Long id) {
+        return {{term.name | to_lowercase}}Repository.findById(id);
+    }
+
+    public {{term.name}} create({{term.name}} {{term.name | to_lowercase}}) {
+        return {{term.name | to_lowercase}}Repository.save({{term.name | to_lowercase}});
+    }
+
+    public {{term.name}} update(Long id, {{term.name}} {{term.name | to_lowercase}}) {
+        {{term.name}} old{{term.name}} = {{term.name | to_lowercase}}Repository.findById(id);
+        {% for property in term.properties%}
+        old{{term.name}}.set{{property.name | to_pascalcase}}({{term.name | to_lowercase}}.get{{property.name | to_pascalcase}});
+        {% endfor %}
+        {{term.name}} updated{{term.name}} = {{term.name | to_lowercase}}Repository.save(old{{term.name}});
+        return updated{{term.name}};
+    }
+
+    public void delete(Long id) {
+        return {{term.name | to_lowercase}}Repository.deleteById(id);
+    }

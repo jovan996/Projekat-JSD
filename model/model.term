@@ -1,30 +1,25 @@
-type string
-type int
-type long
-type boolean
-
 term User {
-    id : long
-    firstName : string
-    lastName : string
-    username : string
-    password : string
+    id : Long
+    firstName : String
+    lastName : String
+    username : String
+    password : String
     active : boolean
 }
 
 term Firm {
-    id : long
-    name : string
-    email : string
+    id : Long
+    name : String
+    email : String
     workersNumber : int
-    description : string
+    description : String
     address : Address
 }
 
 term Address {
-    id : long
-    street : string
+    id : Long
+    street : String
     number : int
-    city : string
-    country : string
+    city : String
+    country : String
 }

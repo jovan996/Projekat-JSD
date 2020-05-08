@@ -1,0 +1,61 @@
+//Generated from controller.template file
+
+package rs.ac.ftn.uns.jsd.foo.controller;
+
+import org.springframework.http.ResponseEntity;
+//Generated from service.template file
+
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.LogManager;
+
+
+@RestController
+@RequestMapping("/api/{{ term.name | to_lowercase}}s")
+public class {{ term.name }}Controller {
+    private static final Logger LOGGER = LogManager.getLogger({{ term.name }}Controller.class);
+
+    @Autowired
+    private {{ term.name }}Service {{ term.name | to_lowercase }}Service;
+
+    @GetMapping
+    public ResponseEntity<List<{{ term.name }}>> getAll() {
+        return ResponseEntity.ok({{ term.name | to_lowercase}}Service.getAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<{{ term.name }}> getById(@PathVariable Long id) {
+        return ResponseEntity.ok({{ term.name | to_lowercase}}Service.getById(id));
+    }
+
+    @PostMapping
+    public ResponseEntity create(@Valid @RequestBody {{ term.name }} {{ term.name | to_lowercase }}) {
+        return ResponseEntity.ok({{ term.name | to_lowercase }}Service.create({{ term.name | to_lowercase }}));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<{{ term.name }}> update(@PathVariable Long id, @Valid @RequestBody {{ term.name }} {{ term.name | to_lowercase}}) {
+        if ({{ term.name | to_lowercase}}Service.getById(id) == null) {
+            LOGGER.error("Id " + id + " does not exists");
+            ResponseEntity.badRequest().build();
+        }
+
+        return ResponseEntity.ok({{ term.name | to_lowercase }}Service.update(id, {{ term.name | to_lowercase }}));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable Long id) {
+        {{ term.name }} {{term.name | to_lowercase}} = {{ term.name | to_lowercase }}Service.getById(id);
+        if ({{term.name | to_lowercase}} == null) {
+            LOGGER.error("Id " + id + " does not exists");
+            ResponseEntity.badRequest().build();
+        }
+
+        {{ term.name | to_lowercase }}Service.delete(id);
+
+        return ResponseEntity.ok().build();
+    }
+}
