@@ -1,3 +1,8 @@
+Model:
+    termModel=TermModel
+    pomFileModel=PomFileModel
+;
+
 TermModel:
     types*=SimpleType
     terms+=Term
@@ -10,7 +15,7 @@ Term:
 ;
 
 Property:
-    name=ID ':' type=[Type]
+    name=ID ':' type=[Type] 
 ;
 
 Type:
@@ -19,4 +24,72 @@ Type:
 
 SimpleType:
     'type' name=ID
+;
+
+PomFileModel:
+    mainContent=PomMainContent
+    additionalContent=PomAdditionalContent
+;
+
+PomMainContent:
+    modelVersion=ModelVersion
+    projectGroupId=ProjectGroup            // these four concepts are required in every pom.xml file
+    projectId=ProjectId
+    projectVersion=ProjectVersion
+;
+
+ModelVersion:
+    'modelVersion :' name = /.+/
+;
+
+ProjectGroup:
+    'projectGroup :' projectGroup = /.+/
+;
+
+ProjectId:
+    'projectId :' name=ID
+;
+
+ProjectVersion:
+    'projectVersion :' version = /.+/
+;
+
+PomAdditionalContent:
+    (projectArchive=ProjectArchive)?          //concepts in this rule are additional and not required
+    (projectName=ProjectName)? 
+    (description=Description)? 
+    (pomProperties*=PomProperty)? 
+    (dependencies*=Dependency)?
+;
+
+ProjectName:
+    'projectName :' name=ID
+;
+
+Description:
+    'description :' name=/.+/
+;
+
+ProjectArchive:
+    'package :' PackageType
+;
+
+PackageType:
+    "war" | "jar"
+;
+
+PomProperty:
+    'property' propertyName=ID ':' value = /.+/
+;
+
+Dependency:
+    'dependency' name=ID '['
+        'groupId :' groupId = /.+/
+        'artifactId :' artifactId = /.+/
+        'scope :' scope=ID 
+    ']'
+;
+
+Comment:
+    /\/\/.*$/
 ;

@@ -1,6 +1,5 @@
 //Generated from service.template file
 
-package rs.ac.ftn.uns.jsd.foo.service.implementation;
 
 import org.springframework.stereotype.Service;
 import rs.ac.ftn.uns.jsd.foo.model.{{term.name}};

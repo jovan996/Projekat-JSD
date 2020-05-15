@@ -1,25 +1,54 @@
 term User {
-    id : Long
-    firstName : String
-    lastName : String
-    username : String
-    password : String
-    active : boolean
+    id : Long 
+    firstName : String  
+    lastName : String 
+    username : String 
+    password : String 
+    active : boolean  
 }
 
 term Firm {
-    id : Long
-    name : String
-    email : String
-    workersNumber : int
-    description : String
-    address : Address
+    id : Long  
+    name : String   
+    email : String 
+    workersNumber : int 
+    description : String 
+    address : Address 
 }
 
 term Address {
-    id : Long
-    street : String
-    number : int
-    city : String
-    country : String
+    id : Long 
+    street : String 
+    number : int 
+    city : String 
+    country : String 
 }
+
+
+modelVersion : 4.0.0
+projectGroup : com.project.application
+projectId : SpringBootApp
+projectVersion : 0.0.1-SNAPSHOT
+package : jar
+projectName : Spring_boot_app
+description : Web application
+property encoding : UTF-8
+property javaVersion : 1.8
+
+dependency Mysql [
+    groupId : mysql
+    artifactId : mysql-connector-java
+    scope : runtime
+]
+
+dependency Test [
+    groupId : junit
+    artifactId : junit
+    scope : test
+]
+
+dependency Web [
+    groupId : org.springframework.boot
+    artifactId : spring-boot-starter-web
+    scope : runtime
+]

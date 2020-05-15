@@ -28,8 +28,8 @@ def main():
         """
         return {
                 'int': 'int',
-                'string': 'String',
-                'long': 'Long',
+                'String': 'String',
+                'Long': 'Long',
                 'boolean': 'Boolean'
         }.get(s.name, s.name)
 
@@ -73,7 +73,7 @@ def main():
     service_template = jinja_env.get_template('template/service.template')
     controller_template = jinja_env.get_template('template/controller.template')
 
-    for term in model.terms:
+    for term in model.termModel.terms:
         # For each entity generate java file
         #with open(join(srcgen_folder,
                        #"%s.java" % term.name.capitalize()), 'w') as f:
