@@ -24,19 +24,14 @@
 
 
 	<dependencies>
-		
+		{% for dependency in additionalContent.dependencies %}
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
+			<groupId>{{dependency.groupId}}</groupId>
+			<artifactId>{{dependency.artifactId}}</artifactId>
+			<scope>{{dependency.scope}}</scope>
 		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+		{% endfor %}
 		
-
 	</dependencies>
 
 </project>
