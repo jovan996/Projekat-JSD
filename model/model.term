@@ -32,8 +32,16 @@ projectVersion : 0.0.1-SNAPSHOT
 package : jar
 projectName : Spring_boot_app
 description : Web application
-property encoding : UTF-8
-property javaVersion : 1.8
+
+property encoding { 
+    key : project.build.sourceEncoding
+    value : UTF-8
+}
+
+property javaVersion {
+    key : java.version
+    value : 1.8
+} 
 
 dependency Mysql [
     groupId : mysql

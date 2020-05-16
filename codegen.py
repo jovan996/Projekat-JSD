@@ -5,6 +5,7 @@ from app import get_metamodel
 from app import this_folder
 
 APP_DIRECTORY = 'Spring_boot_app\\src\\main\\java\\project'
+POM_DIRECTORY = APP_DIRECTORY[0:15]
 
 this_fold = dirname(__file__)
 print(this_fold)
@@ -54,6 +55,7 @@ def main():
     controller_folder = join(this_folder, APP_DIRECTORY + "\\controller")
     if not exists(controller_folder):
         makedirs(controller_folder)
+    
 
     # Initialize template engine.
     jinja_env = jinja2.Environment(
@@ -61,17 +63,18 @@ def main():
         trim_blocks=True,
         lstrip_blocks=True)
 
-    # Register filter for mapping Entity type names to Java type names.
+    # Register filters 
     jinja_env.filters['javatype'] = javatype
     jinja_env.filters['to_pascalcase'] = to_pascalcase
     jinja_env.filters['to_lowercase'] = to_lowercase
 
-    # Load Java template
+    # Load Java templates
     main_class_template = jinja_env.get_template('template/main_class.template')
     model_template = jinja_env.get_template('template/model.template')
     repository_template = jinja_env.get_template('template/repository.template')
     service_template = jinja_env.get_template('template/service.template')
     controller_template = jinja_env.get_template('template/controller.template')
+    pom_template = jinja_env.get_template('template/pom.template')
 
     for term in model.termModel.terms:
         # For each entity generate java file
@@ -89,6 +92,12 @@ def main():
         with open(join(controller_folder, "%sController.java" % term.name), 'w') as file:
             file.write(controller_template.render(term=term))
 
+    mainContent = model.pomFileModel.mainContent
+    additionalContent = model.pomFileModel.additionalContent
+    print(POM_DIRECTORY)
+
+    with open(join(this_folder, POM_DIRECTORY, "pom.xml"), 'w') as file:
+        file.write(pom_template.render(mainContent=mainContent,additionalContent=additionalContent))
 
 if __name__ == "__main__":
     main()

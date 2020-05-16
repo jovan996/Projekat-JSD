@@ -55,7 +55,7 @@ ProjectVersion:
 ;
 
 PomAdditionalContent:
-    (projectArchive=ProjectArchive)?          //concepts in this rule are additional and not required
+    (projectArchive=ProjectArchive)?         //concepts in this rule are optional in pom file
     (projectName=ProjectName)? 
     (description=Description)? 
     (pomProperties*=PomProperty)? 
@@ -71,7 +71,7 @@ Description:
 ;
 
 ProjectArchive:
-    'package :' PackageType
+    'package :' package=PackageType
 ;
 
 PackageType:
@@ -79,7 +79,10 @@ PackageType:
 ;
 
 PomProperty:
-    'property' propertyName=ID ':' value = /.+/
+    'property' propertyName=ID '{'
+        'key :' key=/.+/
+        'value :' value=/.+/ 
+    '}'
 ;
 
 Dependency:
