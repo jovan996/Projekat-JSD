@@ -1,6 +1,8 @@
-spring.datasource.url=jdbc:mysql://localhost:3306/avio_tickets?createDatabaseIfNotExist=true&useSSL=false
-spring.datasource.username=root
-spring.datasource.password=root
-spring.jpa.generate-ddl=true
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.database-platform=org.hibernate.dialect.MySQL5InnoDBDialect
+//Generated from jinja template
+
+spring.datasource.url = {{propertiesContent.urlParam.databaseURL}}
+spring.datasource.username = {{propertiesContent.username.databaseUsername}}
+spring.datasource.password = {{propertiesContent.password.databasePassword}}
+spring.jpa.hibernate.ddl-auto = {{propertiesContent.databaseCreation.creation}}
+spring.jpa.generate-ddl = {{propertiesContent.generateDDL.generation | convert}}
+spring.jpa.show-sql = {{propertiesContent.showSQL.show | convert}}

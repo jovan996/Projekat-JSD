@@ -66,3 +66,4 @@ databaseUsername : admin
 databasePassword : admin
 databaseCreation : update
 generateDDL : true
+showSQL : true

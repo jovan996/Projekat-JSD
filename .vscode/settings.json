@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:/Users/JOVAN/Desktop/JSD/env/Scripts/python.exe"
+    "python.pythonPath": "C:/Users/JOVAN/Desktop/JSD/env/Scripts/python.exe",
+    "java.configuration.updateBuildConfiguration": "disabled"
 }

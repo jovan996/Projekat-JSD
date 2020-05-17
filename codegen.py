@@ -16,9 +16,14 @@ print(this_fold)
 def to_pascalcase(st):
     return st[0].upper() + st[1:]
 
-
 def to_lowercase(st):
     return st[0].lower() + st[1:]
+
+def convert(param):
+    if(param):
+        return 'true'
+    if(not param):
+        return 'false'
 
 def main():
 
@@ -34,7 +39,7 @@ def main():
                 'int': 'int',
                 'String': 'String',
                 'Long': 'Long',
-                'boolean': 'Boolean'
+                'boolean': 'boolean'
         }.get(s.name, s.name)
 
     # Create output folder
@@ -58,6 +63,10 @@ def main():
     controller_folder = join(this_folder, APP_DIRECTORY + "\\controller")
     if not exists(controller_folder):
         makedirs(controller_folder)
+    resources_folder = join(this_folder, PROPERTIES_DIRECTORY + "\\resources")
+    print(resources_folder)
+    if not exists(resources_folder):
+        makedirs(resources_folder)
     
 
     # Initialize template engine.
@@ -70,6 +79,7 @@ def main():
     jinja_env.filters['javatype'] = javatype
     jinja_env.filters['to_pascalcase'] = to_pascalcase
     jinja_env.filters['to_lowercase'] = to_lowercase
+    jinja_env.filters['convert'] = convert
 
     # Load Java templates
     main_class_template = jinja_env.get_template('template/main_class.template')
@@ -78,6 +88,7 @@ def main():
     service_template = jinja_env.get_template('template/service.template')
     controller_template = jinja_env.get_template('template/controller.template')
     pom_template = jinja_env.get_template('template/pom.template')
+    properties_template = jinja_env.get_template('template/properties.template')
 
     for term in model.termModel.terms:
         # For each entity generate java file
@@ -99,8 +110,13 @@ def main():
     additionalContent = model.pomFileModel.additionalContent
     print(POM_DIRECTORY)
 
-    with open(join(this_folder, POM_DIRECTORY, "pom.xml"), 'w') as file:
+    with open(join(this_folder, POM_DIRECTORY, "pom.xml"), 'w') as file:       # making pom file
         file.write(pom_template.render(mainContent=mainContent,additionalContent=additionalContent))
+
+    propertiesContent = model.databaseModel
+
+    with open(join(resources_folder, "application.properties"), 'w') as file:   #making properties file
+        file.write(properties_template.render(propertiesContent=propertiesContent))
 
 if __name__ == "__main__":
     main()

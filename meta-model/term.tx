@@ -100,6 +100,7 @@ DatabaseModel:
     password = DatabasePassword
     databaseCreation = DatabaseCreation
     generateDDL = DDLgeneration
+    showSQL = ShowSQL
 ;
 
 URL_Param:
@@ -124,6 +125,10 @@ TypeCreation:
 
 DDLgeneration:
     'generateDDL :' generation = BOOL 
+;
+
+ShowSQL:
+    'showSQL :' show = BOOL
 ;
 
 Comment:
