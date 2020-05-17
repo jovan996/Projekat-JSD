@@ -27,8 +27,8 @@ SimpleType:
 ;
 
 PomFileModel:
-    mainContent=PomMainContent
-    additionalContent=PomAdditionalContent
+    mainContent=PomMainContent                  // required content
+    additionalContent=PomAdditionalContent      // optional content
 ;
 
 PomMainContent:
@@ -39,11 +39,11 @@ PomMainContent:
 ;
 
 ModelVersion:
-    'modelVersion :' name = /.+/
+    'modelVersion :' name = /.+\b/
 ;
 
 ProjectGroup:
-    'projectGroup :' projectGroup = /.+/
+    'projectGroup :' projectGroup = /.+\b/
 ;
 
 ProjectId:
@@ -51,7 +51,7 @@ ProjectId:
 ;
 
 ProjectVersion:
-    'projectVersion :' version = /.+/
+    'projectVersion :' version = /.+\b/
 ;
 
 PomAdditionalContent:
@@ -67,7 +67,7 @@ ProjectName:
 ;
 
 Description:
-    'description :' name=/.+/
+    'description :' name = /.+\b/
 ;
 
 ProjectArchive:
@@ -79,16 +79,16 @@ PackageType:
 ;
 
 PomProperty:
-    'property' propertyName=ID '{'
-        'key :' key=/.+/
-        'value :' value=/.+/ 
+    'property' propertyName = ID '{'
+        'key :' key = /.+\b/
+        'value :' value = /.+\b/
     '}'
 ;
 
 Dependency:
     'dependency' name=ID '['
-        'groupId :' groupId = /.+/
-        'artifactId :' artifactId = /.+/
+        'groupId :' groupId = /.+\b/
+        'artifactId :' artifactId = /.+\b/
         'scope :' scope=ID 
     ']'
 ;
