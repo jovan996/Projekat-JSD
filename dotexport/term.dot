@@ -11,92 +11,112 @@
     edge[dir=black,arrowtail=empty]
 
 
-2890929301208[ label="{Model|}"]
+2593639160504[ label="{Model|}"]
 
-2890929312536[ label="{TermModel|}"]
+2593639149176[ label="{TermModel|}"]
 
-2890929321976[ label="{Term|+name:ID\l}"]
+2593639143512[ label="{Term|+name:ID\l}"]
 
-2890929305928[ label="{Property|+name:ID\l}"]
+2593639152952[ label="{Property|+name:ID\l}"]
 
-2890929338968[ label="{*Type|}"]
+2593639167112[ label="{*Type|}"]
 
-2890929298376[ label="{SimpleType|+name:ID\l}"]
+2593639255848[ label="{SimpleType|+name:ID\l}"]
 
-2890929340856[ label="{PomFileModel|}"]
+2593639145400[ label="{PomFileModel|}"]
 
-2890929316312[ label="{PomMainContent|}"]
+2593639157672[ label="{PomMainContent|}"]
 
-2890929344632[ label="{ModelVersion|+name:STRING\l}"]
+2593639162392[ label="{ModelVersion|+name:STRING\l}"]
 
-2890929346520[ label="{ProjectGroup|+projectGroup:STRING\l}"]
+2593639146344[ label="{ProjectGroup|+projectGroup:STRING\l}"]
 
-2890929317256[ label="{ProjectId|+name:ID\l}"]
+2593639159560[ label="{ProjectId|+name:ID\l}"]
 
-2890929335192[ label="{ProjectVersion|+version:STRING\l}"]
+2593639142568[ label="{ProjectVersion|+version:STRING\l}"]
 
-2890929306872[ label="{PomAdditionalContent|}"]
+2593639174664[ label="{PomAdditionalContent|}"]
 
-2890929343688[ label="{ProjectName|+name:ID\l}"]
+2593639177496[ label="{ProjectName|+name:ID\l}"]
 
-2890929348408[ label="{Description|+name:STRING\l}"]
+2593639175608[ label="{Description|+name:STRING\l}"]
 
-2890929351240[ label="{ProjectArchive|+package:PackageType\l}"]
+2593639183160[ label="{ProjectArchive|+package:PackageType\l}"]
 
-2890929352184[ label="{PackageType|war\|jar}"]
+2593639189768[ label="{PackageType|war\|jar}"]
 
-2890929355960[ label="{PomProperty|+propertyName:ID\l+key:STRING\l+value:STRING\l}"]
+2593639190712[ label="{PomProperty|+propertyName:ID\l+key:STRING\l+value:STRING\l}"]
 
-2890929365400[ label="{Dependency|+name:ID\l+groupId:STRING\l+artifactId:STRING\l+scope:ID\l}"]
+2593639192600[ label="{Dependency|+name:ID\l+groupId:STRING\l+artifactId:STRING\l+scope:ID\l}"]
 
-2890929361624[ label="{Comment|\\/\\/.*$}"]
+2593639168056[ label="{DatabaseModel|}"]
 
-2890929323864[ label="{ID|}"]
+2593639171832[ label="{URL_Param|+databaseURL:STRING\l}"]
 
-2890929324808[ label="{STRING|}"]
+2593639187880[ label="{DatabaseUsername|+databaseUsername:ID\l}"]
 
-2890929302152[ label="{BOOL|}"]
+2593639182216[ label="{DatabasePassword|+databasePassword:ID\l}"]
 
-2890929325752[ label="{INT|}"]
+2593639256792[ label="{DatabaseCreation|+creation:TypeCreation\l}"]
 
-2890929327640[ label="{FLOAT|}"]
+2593644036008[ label="{TypeCreation|none\|create-drop\|validate\|update\|create}"]
 
-2890929329528[ label="{STRICTFLOAT|}"]
+2593644050168[ label="{DDLgeneration|+generation:BOOL\l}"]
 
-2890929310648[ label="{NUMBER|}"]
+2593644026568[ label="{Comment|\\/\\/.*$}"]
 
-2890929331416[ label="{BASETYPE|}"]
+2593639261512[ label="{ID|}"]
 
-2890929311592[ label="{*OBJECT|}"]
+2593639258680[ label="{STRING|}"]
+
+2593639155784[ label="{BOOL|}"]
+
+2593639148232[ label="{INT|}"]
+
+2593639152008[ label="{FLOAT|}"]
+
+2593639153896[ label="{STRICTFLOAT|}"]
+
+2593639137848[ label="{NUMBER|}"]
+
+2593639133128[ label="{BASETYPE|}"]
+
+2593639135960[ label="{*OBJECT|}"]
 
 
 
-2890929301208 -> 2890929312536[arrowtail=diamond, dir=both, headlabel="termModel "]
-2890929301208 -> 2890929340856[arrowtail=diamond, dir=both, headlabel="pomFileModel "]
-2890929312536 -> 2890929298376[arrowtail=diamond, dir=both, headlabel="types 0..*"]
-2890929312536 -> 2890929321976[arrowtail=diamond, dir=both, headlabel="terms 1..*"]
-2890929321976 -> 2890929305928[arrowtail=diamond, dir=both, headlabel="properties 1..*"]
-2890929305928 -> 2890929338968[headlabel="type "]
-2890929338968 -> 2890929298376 [dir=back]
-2890929338968 -> 2890929321976 [dir=back]
-2890929340856 -> 2890929316312[arrowtail=diamond, dir=both, headlabel="mainContent "]
-2890929340856 -> 2890929306872[arrowtail=diamond, dir=both, headlabel="additionalContent "]
-2890929316312 -> 2890929344632[arrowtail=diamond, dir=both, headlabel="modelVersion "]
-2890929316312 -> 2890929346520[arrowtail=diamond, dir=both, headlabel="projectGroupId "]
-2890929316312 -> 2890929317256[arrowtail=diamond, dir=both, headlabel="projectId "]
-2890929316312 -> 2890929335192[arrowtail=diamond, dir=both, headlabel="projectVersion "]
-2890929306872 -> 2890929351240[arrowtail=diamond, dir=both, headlabel="projectArchive "]
-2890929306872 -> 2890929343688[arrowtail=diamond, dir=both, headlabel="projectName "]
-2890929306872 -> 2890929348408[arrowtail=diamond, dir=both, headlabel="description "]
-2890929306872 -> 2890929355960[arrowtail=diamond, dir=both, headlabel="pomProperties 0..*"]
-2890929306872 -> 2890929365400[arrowtail=diamond, dir=both, headlabel="dependencies 0..*"]
-2890929310648 -> 2890929329528 [dir=back]
-2890929310648 -> 2890929325752 [dir=back]
-2890929331416 -> 2890929310648 [dir=back]
-2890929331416 -> 2890929327640 [dir=back]
-2890929331416 -> 2890929302152 [dir=back]
-2890929331416 -> 2890929323864 [dir=back]
-2890929331416 -> 2890929324808 [dir=back]
-2890929311592 -> 2890929331416 [dir=back]
+2593639160504 -> 2593639149176[arrowtail=diamond, dir=both, headlabel="termModel "]
+2593639160504 -> 2593639145400[arrowtail=diamond, dir=both, headlabel="pomFileModel "]
+2593639160504 -> 2593639168056[arrowtail=diamond, dir=both, headlabel="databaseModel "]
+2593639149176 -> 2593639255848[arrowtail=diamond, dir=both, headlabel="types 0..*"]
+2593639149176 -> 2593639143512[arrowtail=diamond, dir=both, headlabel="terms 1..*"]
+2593639143512 -> 2593639152952[arrowtail=diamond, dir=both, headlabel="properties 1..*"]
+2593639152952 -> 2593639167112[headlabel="type "]
+2593639167112 -> 2593639255848 [dir=back]
+2593639167112 -> 2593639143512 [dir=back]
+2593639145400 -> 2593639157672[arrowtail=diamond, dir=both, headlabel="mainContent "]
+2593639145400 -> 2593639174664[arrowtail=diamond, dir=both, headlabel="additionalContent "]
+2593639157672 -> 2593639162392[arrowtail=diamond, dir=both, headlabel="modelVersion "]
+2593639157672 -> 2593639146344[arrowtail=diamond, dir=both, headlabel="projectGroupId "]
+2593639157672 -> 2593639159560[arrowtail=diamond, dir=both, headlabel="projectId "]
+2593639157672 -> 2593639142568[arrowtail=diamond, dir=both, headlabel="projectVersion "]
+2593639174664 -> 2593639183160[arrowtail=diamond, dir=both, headlabel="projectArchive "]
+2593639174664 -> 2593639177496[arrowtail=diamond, dir=both, headlabel="projectName "]
+2593639174664 -> 2593639175608[arrowtail=diamond, dir=both, headlabel="description "]
+2593639174664 -> 2593639190712[arrowtail=diamond, dir=both, headlabel="pomProperties 0..*"]
+2593639174664 -> 2593639192600[arrowtail=diamond, dir=both, headlabel="dependencies 0..*"]
+2593639168056 -> 2593639171832[arrowtail=diamond, dir=both, headlabel="urlParam "]
+2593639168056 -> 2593639187880[arrowtail=diamond, dir=both, headlabel="username "]
+2593639168056 -> 2593639182216[arrowtail=diamond, dir=both, headlabel="password "]
+2593639168056 -> 2593639256792[arrowtail=diamond, dir=both, headlabel="databaseCreation "]
+2593639168056 -> 2593644050168[arrowtail=diamond, dir=both, headlabel="generateDDL "]
+2593639137848 -> 2593639153896 [dir=back]
+2593639137848 -> 2593639148232 [dir=back]
+2593639133128 -> 2593639137848 [dir=back]
+2593639133128 -> 2593639152008 [dir=back]
+2593639133128 -> 2593639155784 [dir=back]
+2593639133128 -> 2593639261512 [dir=back]
+2593639133128 -> 2593639258680 [dir=back]
+2593639135960 -> 2593639133128 [dir=back]
 
 }

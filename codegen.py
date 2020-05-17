@@ -6,6 +6,9 @@ from app import this_folder
 
 APP_DIRECTORY = 'Spring_boot_app\\src\\main\\java\\project'
 POM_DIRECTORY = APP_DIRECTORY[0:15]
+PROPERTIES_DIRECTORY = APP_DIRECTORY[0:24]
+
+print(PROPERTIES_DIRECTORY)
 
 this_fold = dirname(__file__)
 print(this_fold)

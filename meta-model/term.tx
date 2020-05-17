@@ -1,6 +1,7 @@
 Model:
     termModel=TermModel
     pomFileModel=PomFileModel
+    databaseModel=DatabaseModel
 ;
 
 TermModel:
@@ -91,6 +92,38 @@ Dependency:
         'artifactId :' artifactId = /.+\b/
         'scope :' scope=ID 
     ']'
+;
+
+DatabaseModel:
+    urlParam = URL_Param
+    username = DatabaseUsername
+    password = DatabasePassword
+    databaseCreation = DatabaseCreation
+    generateDDL = DDLgeneration
+;
+
+URL_Param:
+    'databaseURL :' databaseURL = /.+\b/
+;
+
+DatabaseUsername:
+    'databaseUsername :' databaseUsername = ID
+;
+
+DatabasePassword:
+    'databasePassword :' databasePassword = ID
+;
+
+DatabaseCreation:
+    'databaseCreation :' creation = TypeCreation
+;
+
+TypeCreation:
+    "none" | "create-drop" | "validate" | "update" | "create"
+;
+
+DDLgeneration:
+    'generateDDL :' generation = BOOL 
 ;
 
 Comment:

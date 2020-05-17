@@ -60,3 +60,9 @@ dependency Web [
     artifactId : spring-boot-starter-web
     scope : runtime
 ]
+
+databaseURL : jdbc:mysql://localhost:3400/firm
+databaseUsername : admin
+databasePassword : admin
+databaseCreation : update
+generateDDL : true
