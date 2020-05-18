@@ -1,31 +1,42 @@
-This is an example of a simple DSL which is used for generating Spring boot Rest API applications.
+This is an example of a simple DSL which is used for generating Spring Boot Rest API applications.
+With the help of this language we can generate all layers of Spring Boot application including model,controllers,repositories and services.Also we can generate maven pom.xml file and application.properties file in which we generate basic properties for connecting to MySQL database.
+ 
+File term.tx in meta-model folder contains a grammar of the language. Grammar is written in textX DSL. Model example is given in the file model.term in model folder. 
 
-File term.tx in meta-model folder contains a grammar of the language. Each term of DSL model consists of zero or more simple types definitions and one or more Term instances. Each Term instance contains one or more Property instance. Each Property has a name conforming to built-in ID rule and a type which can be a reference to either SimpleType or Entity from the model or one of two built-in simple types representing basic types (integer and string, see file entity_test.py).
+A program app.py will instantiate meta-model from the grammar, register built-in simple types int,long,boolean and String and register user class SimpleType so that built-in types can be instantiated from the code. A model.term is than parsed and instantiated by the meta-model and both meta-model and model are exported to .dot files in the folder dotexport.
 
-Example model is given in the file person.ent.
+All code generation is presented in the program codegen.py. The code is generated in the Spring_boot_app folder using jinja2 template engine and corresponding templates from template folder. For each term instance one java file is generated in all layers.File pom.xml is generated in Spring_boot_app folder and contains basic settings for every application, properties and dependencies which are defined in model. File application.properties is generated in resources subfolder and we generate some basic properties we are also defined in our model. 
 
-A program entity_test.py will instantiate meta-model from the grammar, register built-in simple types integer and string and register user class SimpleType so that built-in types can be instantiated from the code. A person example model is than parsed/instantiated by the meta-model and both meta-model and model are exported to .dot files in the folder dotexport.
+Meta-model can be checked or visualized by textX command line tool but model can't because it depends on few built-in simple types which must be provided during meta-model instantiation (app.py file).
+To check and visualize meta-model you can use command :
+    textx generate meta-model/term.tx --target dot
 
-An example of code generation is presented in the program entity_codegen.py. The code is generated in the srcgen subfolder using jinja2 template engine and the template java.template. For each Entity instance one java file is generated.
+To run the language do the following:
 
-Note: Meta-model/grammar can be checked/visualized by textx command line tool but model can't because it depends on two built-in simple types (integer and string) which must be provided during meta-model instantiation (see entity_test.py file).
+Install textX
 
-To run the example do the following:
-
-Verify that textX is installed. See documentation how to do that.
-
+   $ pip install textX
+  
 Install Jinja2 for code generation
 
-  $ pip install Jinja2
-From the Entity example folder run
+   $ pip install jinja2
+  
+From powershell(if you are using Visual studio code) or command line run :
+  
+   $ python app.py
+  
+Previous command will generate dot files in dotexport folder. We can convert those files to PNG format but first we must have GraphViz installed (on Windows you must add environment variable):
 
-  $ python entity_test.py
-Previous command will generate dot files in dotexport folder. To convert those files to PNG format do (you must have GraphViz installed):
+To convert the files do the following :
 
-  $ dot -Tpng -O dotexport/*.dot
-You will get entity_meta.dot.png (Entity meta-model) and person.dot.png (Person model) diagram.
+   dot -Tpng -O meta-model/term.dot
+   
+   dot -Tpng -O model/model.dot
+  
+You will get term.dot.png and model.dot.png diagram.
 
 Run code generation:
 
-  $ python entity_codegen.py
-This will produce in Spring_boot_app folder that corresponds to terms from the term model.
+   $ python codegen.py
+  
+This will produce in Spring_boot_app folder which contains generated layers(model,controller,repository,service) for each term instance,pom.xml file and application.properties file.
