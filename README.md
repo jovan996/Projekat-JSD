@@ -9,7 +9,7 @@ All code generation is presented in the program codegen.py. The code is generate
 
 Meta-model can be checked or visualized by textX command line tool but model can't because it depends on few built-in simple types which must be provided during meta-model instantiation (app.py file).
 To check and visualize meta-model you can use command :
-  textx generate meta-model/term.tx --target dot
+    textx generate meta-model/term.tx --target dot
 
 To run the language do the following:
 
@@ -30,6 +30,7 @@ Previous command will generate dot files in dotexport folder. We can convert tho
 To convert the files do the following :
 
    dot -Tpng -O meta-model/term.dot
+   
    dot -Tpng -O model/model.dot
   
 You will get term.dot.png and model.dot.png diagram.
