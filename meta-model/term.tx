@@ -99,8 +99,8 @@ DatabaseModel:
     username = DatabaseUsername
     password = DatabasePassword
     databaseCreation = DatabaseCreation
-    generateDDL = DDLgeneration
-    showSQL = ShowSQL
+    (generateDDL = DDLgeneration)?
+    (showSQL = ShowSQL)?
 ;
 
 URL_Param:

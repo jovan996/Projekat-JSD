@@ -10,7 +10,7 @@ import javax.persistence.Id;
 @Table(name = "{{term.name}}")
 public class {{term.name}} {
     {% for property in term.properties%}
-    {%if property.name == 'id'%}
+    {% if property.name == 'id'%}
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

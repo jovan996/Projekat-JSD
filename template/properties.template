@@ -4,5 +4,9 @@ spring.datasource.url = {{propertiesContent.urlParam.databaseURL}}
 spring.datasource.username = {{propertiesContent.username.databaseUsername}}
 spring.datasource.password = {{propertiesContent.password.databasePassword}}
 spring.jpa.hibernate.ddl-auto = {{propertiesContent.databaseCreation.creation}}
+{% if propertiesContent.generateDDL.generation is defined %}
 spring.jpa.generate-ddl = {{propertiesContent.generateDDL.generation | convert}}
+{% endif %}
+{% if propertiesContent.showSQL.show is defined %}
 spring.jpa.show-sql = {{propertiesContent.showSQL.show | convert}}
+{% endif %}

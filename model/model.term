@@ -31,7 +31,7 @@ projectId : SpringBootApp
 projectVersion : 0.0.1-SNAPSHOT
 package : jar
 projectName : Spring_boot_app
-description : Web application
+description : Web application  
 
 property encoding { 
     key : project.build.sourceEncoding

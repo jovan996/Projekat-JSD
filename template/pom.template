@@ -7,9 +7,15 @@
 	<artifactId>{{mainContent.projectId.name}}</artifactId>
 	<version>{{mainContent.projectVersion.version}}</version>
 
+	{% if additionalContent.projectArchive.package is defined %}
 	<packaging>{{additionalContent.projectArchive.package}}</packaging>
+	{% endif %}
+	{% if additionalContent.projectName.name is defined %}
 	<name>{{additionalContent.projectName.name}}</name>
+	{% endif %}
+	{% if additionalContent.description.name is defined %}
 	<description>{{additionalContent.description.name}}</description>
+	{% endif %}
 
 	<properties>
         {% for property in additionalContent.pomProperties %}
