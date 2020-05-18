@@ -14,22 +14,29 @@ To check and visualize meta-model you can use command :
 To run the language do the following:
 
 Install textX
+
   $ pip install textX
   
 Install Jinja2 for code generation
+
   $ pip install jinja2
   
 From powershell(if you are using Visual studio code) or command line run :
+  
   $ python app.py
   
 Previous command will generate dot files in dotexport folder. We can convert those files to PNG format but first we must have GraphViz installed (on Windows you must add environment variable):
 
-To convert the files do the following : 
+To convert the files do the following :
+
   dot -Tpng -O meta-model/term.dot
+  
   dot -Tpng -O model/model.dot
+  
 You will get term.dot.png and model.dot.png diagram.
 
 Run code generation:
+
   $ python codegen.py
   
 This will produce in Spring_boot_app folder which contains generated layers(model,controller,repository,service) for each term instance,pom.xml file and application.properties file.
